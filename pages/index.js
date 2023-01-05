@@ -7,12 +7,6 @@ import { BioSection, BioYear } from '../components/bio'
 import { IoLogoTwitter, IoLogoGithub, IoLogoTwitch } from 'react-icons/io5'
 
 const Page = () => {
-    const copy = async () => {
-        await navigator.clipboard.writeText(text);
-        alert('Text copied');
-      }
-
-
     return ( 
         <Container maxW="container.xl">
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
@@ -33,7 +27,7 @@ const Page = () => {
             h="100px"
             display="inline-block"
             borderRadius="full"
-            overflow="hidden" src="/images/profile3.png" />
+            overflow="hidden" src="/images/profile3.png" alt="profile"/>
                 </Box> 
         </Box>
         <Section delay={0.1}>
