@@ -17,7 +17,7 @@ const Page = () => {
                 <Heading as="h2" variant="page-title">
                     faucet
                 </Heading>
-                    <p>Developer / Artist / University student / Software engineer</p>
+                    <p>Developer / Artist / University student / Software engineer / 我说中文</p>
                 </Box> 
                <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}} align="center">
                 <Image borderColor="whiteAlpha.800"
@@ -35,7 +35,7 @@ const Page = () => {
                 Work
             </Heading>
             <Paragraph>
-I am a twitch streamer, artist, and software engineer. Seeking hands-on experience with various tools and programming languages in the field of software/web development. Actively honing in on my digital art skills :D. Check out my{' '} <NextLink href="https://twitter.com/destroyerfaucet"><Link>twitter</Link></NextLink>.</Paragraph>
+I am a twitch streamer, artist, and software engineer. Seeking hands-on experience with various tools and programming languages in the field of software/web development. Actively honing in on my digital art skills :D.</Paragraph>
 <Box align="center" my={4}><NextLink href="/works">
     <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">My portfolio</Button></NextLink></Box>
         </Section>
@@ -45,10 +45,10 @@ I am a twitch streamer, artist, and software engineer. Seeking hands-on experien
                 Bio
             </Heading>
             <BioSection>
-                <BioYear>2003</BioYear>Born in The Bronx, NYC.
+                <BioYear>2003</BioYear>Born in NYC.
             </BioSection>
             <BioSection>
-            <BioYear>2021</BioYear>Enrolled in a University Computer Science Program. 
+            <BioYear>2021</BioYear>Enrolled in a University Computer Science Program. Began learning Chinese (非常好!)
             </BioSection>
             <BioSection>
             <BioYear>2022 to present</BioYear>Started streaming programming sessions, started digital drawing.
@@ -59,7 +59,7 @@ I am a twitch streamer, artist, and software engineer. Seeking hands-on experien
         <Heading as="h3" variant="section-title" mb={4}>
                 I ♥
             </Heading>
-            <Paragraph>Art, web-development, drawing, photography, music, coding interview problems, machine learning.</Paragraph>
+            <Paragraph>Art, web-development, drawing, photography, music, coding interview problems :s, machine learning, practicing Chinese (练习中文).</Paragraph>
         </Section>
 
         <Section delay={0.3}>
