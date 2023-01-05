@@ -1,12 +1,19 @@
-import { Button, Container, Box, Heading, Image, Link, useColorModeValue } from '@chakra-ui/react'
+import { Button, Container, Box, List, ListItem, Heading, Image, Link, useColorModeValue, SimpleGrid, Icon } from '@chakra-ui/react'
 import Section from "../components/section"
 import Paragraph from "../components/paragraph"
 import NextLink from 'next/link'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
-
+import { IoLogoTwitter, IoLogoGithub, IologoTwitch, IoLogoDiscord, IoLogoTwitch } from 'react-icons/io5'
+import { GridItem } from "../components/grid-item"
 
 const Page = () => {
+    const copy = async () => {
+        await navigator.clipboard.writeText(text);
+        alert('Text copied');
+      }
+
+
     return ( 
         <Container maxW="container.xl">
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
@@ -59,7 +66,39 @@ I am a twitch streamer, artist, and software engineer. Seeking hands-on experien
         <Heading as="h3" variant="section-title" mb={4}>
                 I ♥
             </Heading>
-            <Paragraph>Art, web-development, drawing, photography, music, coding interview problems.</Paragraph>
+            <Paragraph>Art, web-development, drawing, photography, music, coding interview problems, machine learning.</Paragraph>
+        </Section>
+
+        <Section delay={0.3}>
+        <Heading as="h3" variant="section-title" mb={4}>
+                On the web
+            </Heading>
+            <List>
+                <ListItem>
+                    <Link href="https://github.com/faucetd" target="_blank">
+                        <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoGithub}/>}>
+                            @faucetd
+                        </Button>
+                    </Link>
+                </ListItem>
+
+                <ListItem>
+                    <Link href="https://www.twitch.tv/faucet_destroyer" target="_blank">
+                        <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoTwitch}/>}>
+                        @faucet_destroyer
+                        </Button>
+                    </Link>
+                </ListItem>
+
+                <ListItem>
+                    <Link href="https://twitter.com/destroyerfaucet" target="_blank">
+                        <Button variant="ghost" colorScheme="teal" leftIcon={<Icon as={IoLogoTwitter}/>}>
+                        @destroyerfaucet
+                        </Button>
+                    </Link>
+                </ListItem>
+                
+            </List>
         </Section>
         </Container> 
     )
