@@ -4,6 +4,7 @@ import { WorkGridItem } from '../components/grid-item'
 import bodysketch1 from "../public/images/works/bodysketch1.png"
 import pixelfrog from "../public/images/works/pixelfrog.png"
 import tyguy from "../public/images/works/tyguy.png"
+import shalomharlow from "../public/images/works/shalom_harlow.png"
 
 const Works = () => {
     return (
@@ -13,6 +14,11 @@ const Works = () => {
             </Heading>
 
             <SimpleGrid columns={[3, 3, 3]} gap={6}>
+
+            <Section>
+            <WorkGridItem id="shalomharlow" title="Shalom Harlow" thumbnail={shalomharlow}>6/jan/2023</WorkGridItem>
+        </Section>
+
             <Section>
             <WorkGridItem id="pixelfrog" title="Pixel Frog" thumbnail={pixelfrog}>5/jan/2023</WorkGridItem>
         </Section>

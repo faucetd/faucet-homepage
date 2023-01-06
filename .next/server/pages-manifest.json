@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/works/bodysketch1": "pages/works/bodysketch1.js",
+  "/works/tyguy": "pages/works/tyguy.js",
+  "/works": "pages/works.js",
+  "/": "pages/index.js",
+  "/works/shalomharlow": "pages/works/shalomharlow.js"
 }
