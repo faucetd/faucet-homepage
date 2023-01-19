@@ -6,6 +6,7 @@ import pixelfrog from "../public/images/works/pixelfrog.png"
 import tyguy from "../public/images/works/tyguy.png"
 import shalomharlow from "../public/images/works/shalom_harlow.png"
 import robot from "../public/images/works/robot.png"
+import witch from "../public/images/works/witch.png"
 
 const Works = () => {
     return (
@@ -15,6 +16,10 @@ const Works = () => {
             </Heading>
 
             <SimpleGrid columns={[3, 3, 3]} gap={6}>
+
+            <Section>
+            <WorkGridItem id="witch" title="Witch" thumbnail={witch}>19/jan/2023</WorkGridItem>
+            </Section>
 
             <Section>
             <WorkGridItem id="robot" title="Robot" thumbnail={robot}>9/jan/2023</WorkGridItem>
