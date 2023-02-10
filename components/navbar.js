@@ -77,6 +77,9 @@ const Navbar = props => {
           <LinkItem href="/blog" path={path}>
             Blog
           </LinkItem>
+          <LinkItem href="/commissions" path={path}>
+            Commissions
+          </LinkItem>
           <LinkItem
             target="_blank"
             href="https://github.com/faucetd/faucet-homepage"
@@ -111,6 +114,9 @@ const Navbar = props => {
                 </NextLink>
                 <NextLink href="/blog" passHref>
                   <MenuItem as={Link}>Blog</MenuItem>
+                </NextLink>
+                <NextLink href="/commissions" passHref>
+                  <MenuItem as={Link}>Commissions</MenuItem>
                 </NextLink>
                 <MenuItem
                   as={Link}
