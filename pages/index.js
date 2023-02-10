@@ -1,4 +1,4 @@
-import { Button, Container, Box, List, ListItem, Heading, Image, Link, useColorModeValue, Icon, useToast} from '@chakra-ui/react'
+import { Button, Container, Box, List, ListItem, Heading, Image, Link, useColorModeValue, Icon} from '@chakra-ui/react'
 import Section from "../components/section"
 import Paragraph from "../components/paragraph"
 import NextLink from 'next/link'
