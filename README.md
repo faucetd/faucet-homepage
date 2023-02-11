@@ -1,5 +1,4 @@
-# my homepage lol
-
+# my homepage lol: www.faucetdestroyer.com
 ### made using Next.js, like, entirely lmao 
 ### hosts 
 - my art
