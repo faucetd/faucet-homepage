@@ -1,13 +1,13 @@
 import { Button, Container, Box, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
-import React, { useState } from "react";
 import Section from "../components/section"
+import React, { useState } from "react";
+import { sendContactForm } from '../lib/api'
 
 const initValues = {name: "", email: "", subject: "", message: "",}
 
 const initState = {values: initValues}
 
-
-const Commissions = () => {
+const Page = () => {
     const toast = useToast()
     const [state, setState] = useState(initState); 
     const [touched, setTouched] = useState({}); 
@@ -38,7 +38,7 @@ const Commissions = () => {
             setTouched({}), 
             setState(initState);
             toast({
-                title: "Message sent!!", 
+                title: "message sent!!", 
                 status: "success", 
                 duration: 2500, 
                 position: "bottom-right"
@@ -52,13 +52,11 @@ const Commissions = () => {
             }));
         }    
     }
-    return (
-        <dev>
-            <Heading as="h3" fontSize={20} mb={4}>
-                Commissions
-            </Heading>
-        <Container align="center" maxW='container.xl'>
-            <Section delay={0.3}>
+    
+    return ( 
+        <Container align="center" maxW="container.xl">
+            
+        <Section delay={0.3}>
             <Box borderWidth={1} p={6} mt={8} borderColor={useColorModeValue('blackAlpha.700', 'whiteAlpha.200')} maxW="500px">
         <Heading as="h3" variant="section-title" mb={4} align="center">
                 Commission Form
@@ -95,9 +93,7 @@ const Commissions = () => {
             </Section>
             
         </Container> 
-        </dev>
-           
     )
 }
 
-export default Commissions 
+export default Page
