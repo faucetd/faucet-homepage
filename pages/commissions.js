@@ -1,9 +1,9 @@
-import { Button, Container, Box, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
+import { Button, Container, Box, RadioGroup, Radio, HStack, FormHelperText, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
 import Section from "../components/section"
 import React, { useState } from "react";
 import { sendContactForm } from '../lib/api'
 
-const initValues = {name: "", email: "", subject: "", message: "",}
+const initValues = {name: "", email: "", pricing: "", subject: "", message: "",}
 
 const initState = {values: initValues}
 
@@ -11,6 +11,7 @@ const Page = () => {
     const toast = useToast()
     const [state, setState] = useState(initState); 
     const [touched, setTouched] = useState({}); 
+    const [myPricing, setMyPricing] = useState('5$')
     
     const {values, isLoading, error} = state
 
@@ -28,9 +29,10 @@ const Page = () => {
     }));
 
     const onSubmit = async () => {
+        values.pricing = myPricing
         setState((prev) => ({
             ...prev, 
-            isLoading:true
+            isLoading:true, 
         }));
 
         try{ 
@@ -67,25 +69,38 @@ const Page = () => {
             )}
             <FormControl isRequired mb={5} mt={5} isInvalid={touched.name && !values.name}>
                 <FormLabel>Name</FormLabel>
-                <Input onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="text" name="name" value = {values.name} onChange={handleChange}/>
+                <Input placeholder='grongus mcgougar III' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="text" name="name" value = {values.name} onChange={handleChange}/>
             <FormErrorMessage>Required</FormErrorMessage>
             </FormControl>
 
             <FormControl isRequired mb={5} isInvalid={touched.email && !values.email}>
                 <FormLabel>Email</FormLabel>
-                <Input onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="email" name="email" value = {values.email} onChange={handleChange}/>
+                <Input placeholder='iceclimber@badboykillaz.com' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="email" name="email" value = {values.email} onChange={handleChange}/>
                 <FormErrorMessage>Required</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isRequired mb={5} isInvalid={touched.pricing && !values.pricing}>
+                <FormLabel as='legend'>Pricing</FormLabel>
+                    <RadioGroup defaultValue='5$' onChange={setMyPricing} value = {myPricing} >
+                        <HStack spacing='24px'>
+                        <Radio name="5$" value='5$'>5$</Radio>
+                        <Radio name="13$" value='13$'>13$</Radio>
+                        <Radio name="25$" value='25$'>25$</Radio>
+                        <Radio name="Other" value='Other'>Other</Radio>
+                        </HStack>
+                     </RadioGroup>
             </FormControl>
 
             <FormControl isRequired mb={5} isInvalid={touched.subject && !values.subject}>
                 <FormLabel>Subject</FormLabel>
-                <Input onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="text" name="subject" value = {values.subject} onChange={handleChange}/>
+                <Input placeholder='plz specify price if you selected "Other"' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" type="text" name="subject" value = {values.subject} onChange={handleChange}/>
                 <FormErrorMessage>Required</FormErrorMessage>
             </FormControl>
 
+
             <FormControl isRequired mb={5}  isInvalid={touched.message && !values.message}>
-                <FormLabel>Message</FormLabel>
-                <Textarea onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} type="text" name="message" value = {values.message} onChange={handleChange}/>
+                <FormLabel>Message</FormLabel> 
+                <Textarea placeholder='describe what u want! we will converse back and forth via email :)' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} type="text" name="message" value = {values.message} onChange={handleChange}/>
                 <FormErrorMessage>Required</FormErrorMessage>
             </FormControl>
             <Button onClick={onSubmit} isLoading={isLoading} variant="outline" colorScheme="teal" disabled={!values.name || !values.email || !values.subject || !values.message}>Submit</Button>
