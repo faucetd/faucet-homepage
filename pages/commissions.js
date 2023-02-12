@@ -1,4 +1,4 @@
-import { Button, Container, Box, RadioGroup, Radio, HStack, FormHelperText, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
+import { Button, Container, Box, RadioGroup, Radio, HStack, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
 import Section from "../components/section"
 import React, { useState } from "react";
 import { sendContactForm } from '../lib/api'
@@ -29,7 +29,6 @@ const Page = () => {
     }));
 
     const onSubmit = async () => {
-        values.pricing = myPricing
         setState((prev) => ({
             ...prev, 
             isLoading:true, 
