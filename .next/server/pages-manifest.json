@@ -1,7 +1,19 @@
 {
-  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
   "/api/contact": "pages/api/contact.js",
-  "/commissions": "pages/commissions.js"
+  "/_app": "pages/_app.js",
+  "/blog": "pages/blog.html",
+  "/commissions": "pages/commissions.html",
+  "/works": "pages/works.html",
+  "/": "pages/index.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html",
+  "/works/bodysketch1": "pages/works/bodysketch1.js",
+  "/works/johnGalliano1999": "pages/works/johnGalliano1999.js",
+  "/works/johnGalliano2011": "pages/works/johnGalliano2011.js",
+  "/works/robot": "pages/works/robot.js",
+  "/works/shalomharlow": "pages/works/shalomharlow.js",
+  "/works/pixelfrog": "pages/works/pixelfrog.js",
+  "/works/tyguy": "pages/works/tyguy.js",
+  "/works/witch": "pages/works/witch.js"
 }
