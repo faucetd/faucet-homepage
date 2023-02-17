@@ -78,7 +78,7 @@ const Page = () => {
         <Heading as="h3" variant="section-title" mb={4} align="center">
                 Commission Form
             </Heading>
-            <Text align="center" color={useColorModeValue('blackAlpha.700', 'whiteAlpha.700')}>Want a commission done? Feel free to message me here or DM me over socials!</Text>
+            <Text align="center" color={useColorModeValue('blackAlpha.700', 'whiteAlpha.700')}>Want a commission or freelance project done? Feel free to message me here or DM me over socials!</Text>
             {error && (
                 <Text color="red.300" my={4} fontsize="xl">{error}</Text>
             )}
