@@ -1,9 +1,12 @@
-import { Button, Container, Box, RadioGroup, Radio, HStack, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
-import Section from "../components/section"
+import { Button, Container, FormHelperText, Box, RadioGroup, Radio, HStack, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
+import Section from "../components/section";
 import React, { useState } from "react";
-import { sendContactForm } from '../lib/api'
+import { sendContactForm } from '../lib/api';
+import { storage } from './firebase';
+import { ref, uploadBytes } from 'firebase/storage';
+import { v4 } from "uuid";
 
-const initValues = {name: "", email: "", pricing: "", subject: "", message: "",}
+const initValues = {name: "", email: "", pricing: "", subject: "", message: "", link: ""}
 
 const initState = {values: initValues}
 
@@ -11,8 +14,8 @@ const Page = () => {
     const toast = useToast()
     const [state, setState] = useState(initState); 
     const [touched, setTouched] = useState({}); 
-    const [myPricing, setMyPricing] = useState('5$')
-    
+    const [myPricing, setMyPricing] = useState('')
+    const [imageUpload, setImageUpload] = useState(null)
     const {values, isLoading, error} = state
 
     const onBlur = ({target}) => setTouched((prev) => ({...prev, 
@@ -29,6 +32,18 @@ const Page = () => {
     }));
 
     const onSubmit = async () => {
+        values.pricing = myPricing
+        
+        if(imageUpload != null) {
+            const lol = imageUpload.name + v4()
+            const imageRef = ref(storage, `images/${lol}`); 
+            values.link = `https://firebasestorage.googleapis.com/v0/b/faucet-homepage.appspot.com/o/images%2F${lol}?alt=media&token=8ae5919a-7bf0-4a81-a23d-69f8a380ea15`.toString()
+            uploadBytes(imageRef, imageUpload).then(()=>{
+                alert("Image uploaded");
+            })       
+        }
+        
+
         setState((prev) => ({
             ...prev, 
             isLoading:true, 
@@ -38,6 +53,9 @@ const Page = () => {
             await sendContactForm(values); 
             setTouched({}), 
             setState(initState);
+            setMyPricing("")
+            setImageUpload(null)
+            
             toast({
                 title: "message sent!!", 
                 status: "success", 
@@ -80,12 +98,12 @@ const Page = () => {
 
             <FormControl isRequired mb={5} isInvalid={touched.pricing && !values.pricing}>
                 <FormLabel as='legend'>Pricing</FormLabel>
-                    <RadioGroup defaultValue='5$' onChange={setMyPricing} value = {myPricing} >
+                    <RadioGroup  onChange={setMyPricing} value = {myPricing} >
                         <HStack spacing='24px'>
-                        <Radio name="5$" value='5$'>5$</Radio>
-                        <Radio name="13$" value='13$'>13$</Radio>
-                        <Radio name="25$" value='25$'>25$</Radio>
-                        <Radio name="Other" value='Other'>Other</Radio>
+                        <Radio name="5$" value='5$' checked={values.pricing === '5$'}>5$</Radio>
+                        <Radio name="13$" value='13$' checked={values.pricing === '13$'}>13$</Radio>
+                        <Radio name="25$" value='25$' checked={values.pricing === '25$'}>25$</Radio>
+                        <Radio name="Other" value='Other' checked={values.pricing === 'Other'}>Other</Radio>
                         </HStack>
                      </RadioGroup>
             </FormControl>
@@ -102,6 +120,14 @@ const Page = () => {
                 <Textarea placeholder='describe what u want! we will converse back and forth via email :)' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} type="text" name="message" value = {values.message} onChange={handleChange}/>
                 <FormErrorMessage>Required</FormErrorMessage>
             </FormControl>
+
+            <FormControl mb={5}>
+                <FormLabel>Reference Image</FormLabel> 
+                <FormHelperText pb={1} align="left">feel free to upload a png, jpg, jpeg, or pdf!!</FormHelperText>
+                <Input pt={1} onChange={(event)=> {setImageUpload(event.target.files[0])}} type="file" onenter  accept=".pdf,.png,.jpg,.jpeg" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} name="image"/>
+                <FormErrorMessage>Required</FormErrorMessage>
+            </FormControl>
+
             <Button onClick={onSubmit} isLoading={isLoading} variant="outline" colorScheme="teal" disabled={!values.name || !values.email || !values.subject || !values.message}>Submit</Button>
             </Box>
             </Section>
