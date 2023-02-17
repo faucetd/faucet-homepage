@@ -38,9 +38,7 @@ const Page = () => {
             const lol = imageUpload.name + v4()
             const imageRef = ref(storage, `images/${lol}`); 
             values.link = `https://firebasestorage.googleapis.com/v0/b/faucet-homepage.appspot.com/o/images%2F${lol}?alt=media&token=8ae5919a-7bf0-4a81-a23d-69f8a380ea15`.toString()
-            uploadBytes(imageRef, imageUpload).then(()=>{
-                alert("Image uploaded");
-            })       
+            uploadBytes(imageRef, imageUpload)   
         }
         
 
