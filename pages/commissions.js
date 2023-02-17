@@ -2,7 +2,7 @@ import { Button, Container, FormHelperText, Box, RadioGroup, Radio, HStack, Head
 import Section from "../components/section";
 import React, { useState } from "react";
 import { sendContactForm } from '../lib/api';
-import { storage } from './firebase';
+import { storage } from '../config/firebase';
 import { ref, uploadBytes } from 'firebase/storage';
 import { v4 } from "uuid";
 
