@@ -10,6 +10,7 @@ import witch from "../public/images/works/witch.png"
 import johnGalliano2011 from "../public/images/works/johnGalliano2011.png"
 import johnGalliano1999 from "../public/images/works/johnGalliano1999.png"
 import altGirl from "../public/images/works/alt-gal.png"
+import jojo from "../public/images/works/jojo.png"
 
 const Works = () => {
     return (
@@ -19,6 +20,10 @@ const Works = () => {
             </Heading>
 
             <SimpleGrid columns={[3, 3, 3]} gap={6}>
+
+            <Section>
+            <WorkGridItem id="jojo" title="Jojo Fanart" thumbnail={jojo}>28/mar/2023</WorkGridItem>
+            </Section>
 
             <Section>
             <WorkGridItem id="altGirl" title="Alt Girl" thumbnail={altGirl}>20/feb/2023</WorkGridItem>
