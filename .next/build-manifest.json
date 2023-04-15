@@ -15,6 +15,16 @@
   ],
   "rootMainFiles": [],
   "pages": {
+    "/": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
+    ],
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,10 +40,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/works.js"
     ],
-    "/works/jojo": [
+    "/works/part7": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/works/jojo.js"
+      "static/chunks/pages/works/part7.js"
     ]
   },
   "ampFirstPages": []

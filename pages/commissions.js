@@ -1,4 +1,4 @@
-import { Button, Container, FormHelperText, Box, RadioGroup, Radio, HStack, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
+import { Button, Container, Box, RadioGroup, Radio, HStack, Heading, useColorModeValue, FormControl, FormLabel, Input, Textarea, FormErrorMessage, Text, useToast} from '@chakra-ui/react'
 import Section from "../components/section";
 import React, { useState } from "react";
 import { sendContactForm } from '../lib/api';
@@ -116,13 +116,6 @@ const Page = () => {
             <FormControl isRequired mb={5}  isInvalid={touched.message && !values.message}>
                 <FormLabel>Message</FormLabel> 
                 <Textarea placeholder='describe what u want! we will converse back and forth via email :)' onBlur={onBlur} errorBorderColor="red.300" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} type="text" name="message" value = {values.message} onChange={handleChange}/>
-                <FormErrorMessage>Required</FormErrorMessage>
-            </FormControl>
-
-            <FormControl mb={5}>
-                <FormLabel>Reference Image</FormLabel> 
-                <FormHelperText pb={1} align="left">feel free to upload a png, jpg, jpeg, or pdf!!</FormHelperText>
-                <Input pt={1} onChange={(event)=> {setImageUpload(event.target.files[0])}} type="file" onenter  accept=".pdf,.png,.jpg,.jpeg" borderColor="teal.400" focusBorderColor="teal.400" maxW="450px" rows={4} name="image"/>
                 <FormErrorMessage>Required</FormErrorMessage>
             </FormControl>
 
