@@ -4,8 +4,7 @@ const CONTACT_MESSAGE_FIELDS = {
   name: "Name",
   email: "Email",
   subject: "Subject",
-  message: "Message",
-  link: "File Attachment"
+  message: "Message"
 };
 
 const generateEmailContent = (data) => {
