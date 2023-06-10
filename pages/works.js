@@ -12,6 +12,8 @@ import johnGalliano1999 from "../public/images/works/johnGalliano1999.png"
 import altGirl from "../public/images/works/alt-gal.png"
 import jojo from "../public/images/works/jojo.png"
 import part7 from "../public/images/works/jojosketches.png"
+import musclelady from "../public/images/works/musclelady.png"
+import facestudy from "../public/images/works/facestudy.png"
 
 const Works = () => {
     return (
@@ -21,6 +23,14 @@ const Works = () => {
             </Heading>
 
             <SimpleGrid columns={[3, 3, 3]} gap={6}>
+
+            <Section>
+            <WorkGridItem id="facestudy" title="face study" thumbnail={facestudy}>2/jun/2023</WorkGridItem>
+            </Section>
+
+            <Section>
+            <WorkGridItem id="musclelady" title="musclelady" thumbnail={musclelady}>1/jun/2023</WorkGridItem>
+            </Section>
 
             <Section>
             <WorkGridItem id="part7" title="Part 7" thumbnail={part7}>15/apr/2023</WorkGridItem>
